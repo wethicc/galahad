@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            x:Class="galahad.Views.MainView"
+            BackgroundColor="#f5f6fa"
+            BarBackgroundColor="#f1c40f"
+            BarTextColor="#2f3640"
+            android:TabbedPage.BarItemColor="#D8B00D"
+            android:TabbedPage.BarSelectedItemColor="#2f3640">
+    
+    <ContentPage Title="Alarms">
+        <StackLayout>
+            <Label Text="{Binding TestText}"/>
+        </StackLayout>
+    </ContentPage>
+    
+    <ContentPage Title="Groups">
+        <StackLayout>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>
