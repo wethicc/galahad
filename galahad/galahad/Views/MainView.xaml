@@ -18,6 +18,7 @@
     
     <ContentPage Title="Groups">
         <StackLayout>
+            
         </StackLayout>
     </ContentPage>
 </TabbedPage>
