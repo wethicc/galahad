@@ -4,7 +4,7 @@ using System.Text;
 
 namespace galahad.Models
 {
-    class Group
+    public class Group
     {
         public string Id { get; set; }
         public List<Event> Events { get; set; }

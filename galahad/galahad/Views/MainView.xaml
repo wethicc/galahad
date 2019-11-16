@@ -12,7 +12,44 @@
     
     <ContentPage Title="Alarms">
         <StackLayout>
-            <Label Text="{Binding TestText}"/>
+            <Label Text="Events" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Large"/>
+            <ListView Margin="0,20,0,0" RowHeight="100" ItemsSource="{Binding SelectedGroup.Events}" >
+                <ListView.ItemTemplate>
+                    
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid HeightRequest="1000">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="150"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Row="0" BackgroundColor="#2f3640">
+                                    <Label Text="{Binding Name}" TextColor="#f1c40f" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0">
+                                        <Label Text="{Binding Description}"/>
+                                        <Label Text="{Binding Date}"/>
+                                    </StackLayout>
+                                    <Grid Grid.Column="1">
+                                        <Button>
+                                            Edit
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage>
     
