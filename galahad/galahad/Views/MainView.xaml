@@ -18,7 +18,7 @@
                     
                     <DataTemplate>
                         <ViewCell>
-                            <Grid HeightRequest="1000">
+                            <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="30"/>
                                     <RowDefinition Height="150"/>
@@ -35,15 +35,23 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="150"/>
                                     </Grid.ColumnDefinitions>
-                                    <StackLayout Grid.Column="0">
-                                        <Label Text="{Binding Description}"/>
-                                        <Label Text="{Binding Date}"/>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Grid.Column="0" Grid.Row="0">
+                                        <Label Text="{Binding Description}"/>                                        
                                     </StackLayout>
-                                    <Grid Grid.Column="1">
-                                        <Button>
-                                            Edit
-                                        </Button>
-                                    </Grid>
+                                    <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal" Spacing="15">
+                                        <Label FontSize="Medium" 
+                                               FontAttributes="Bold"
+                                               Text="{Binding Path=Date, StringFormat='{}{0:hh:mm}'}" />
+
+                                        <Label Text="Repeated"/>
+                                        <Label Text="Reminder"/>
+
+
+                                    </StackLayout>
                                 </Grid>
                             </Grid>
                         </ViewCell>                        
