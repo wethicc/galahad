@@ -8,5 +8,7 @@ namespace galahad.Models
     {
         public string Id { get; set; }
         public List<Event> Events { get; set; }
+        public string Name { get; set; }
+            
     }
 }

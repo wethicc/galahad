@@ -16,21 +16,22 @@ namespace galahad.ViewModels
         {
             test = "213";
             List<Event> Events  = new List<Event>();
+            List<Event> Events2 = new List<Event>();
             Events.Add(
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
-                    Name = "Event1",
-                    Description = "I made an Event1",
+                    Name = "Gym",
+                    Description = "Leeds City Center",
                     Lat = 41.40338,
                     Lon = 2.17403,
-                    Date = DateTime.Now,
+                    Date = new DateTime(2019, 12, 8, 7, 30, 0),
                     Repeated = false,
                     Warning = false,
                     WarningTime = null
                 }
-            );
-            Events.Add(
+            ); 
+            Events2.Add(
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
@@ -44,7 +45,7 @@ namespace galahad.ViewModels
                     WarningTime = null
                 }
             );
-            Events.Add(
+            Events2.Add(
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
@@ -58,7 +59,7 @@ namespace galahad.ViewModels
                     WarningTime = null
                 }
             );
-            Events.Add(
+            Events2.Add(
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
@@ -77,9 +78,23 @@ namespace galahad.ViewModels
                 new Group
                 {
                     Id = new Guid().ToString("N").ToUpper(),
-                    Events = Events
+                    Events = Events,
+                    Name = "Gym Group"
                 }
             );
+
+
+            Groups.Add(
+                new Group
+                {
+                    Id = new Guid().ToString("N").ToUpper(),
+                    Events = Events2,
+                    Name = "Work Group"
+                }
+            );
+
+
+
             SelectedGroup = Groups.FirstOrDefault();
         }
     }
