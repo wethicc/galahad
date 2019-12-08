@@ -8,4 +8,8 @@
     <PackageReference Include="MongoDB.Driver" Version="2.9.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Permissions\" />
+  </ItemGroup>
+
 </Project>

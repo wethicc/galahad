@@ -15,4 +15,8 @@
     <ProjectReference Include="..\galahad.Models\galahad.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

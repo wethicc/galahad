@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using galahad.API.Services;
-using galahad.Models;
+﻿using galahad.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace galahad.API
@@ -32,8 +25,6 @@ namespace galahad.API
 
             services.AddSingleton<IGalahadDatabaseSettings>(
                 sp => sp.GetRequiredService<IOptions<GalahadDatabaseSettings>>().Value);
-
-            services.AddSingleton<EventService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
