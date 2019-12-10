@@ -14,8 +14,9 @@
         <Grid VerticalOptions="FillAndExpand" BackgroundColor="Red">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
             <Label Grid.Row="0" 
@@ -25,8 +26,15 @@
                    HorizontalTextAlignment="Center" 
                    FontSize="Large"/>
 
-            <ListView Grid.Row="1" 
-                      ItemsSource="{Binding SelectedGroup.Events}" 
+            <Label Grid.Row="1" 
+                   Text="{Binding SelectedGroup.Name}" 
+                   TextColor="Black" 
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center" 
+                   FontSize="Large"/>
+
+            <ListView Grid.Row="2" 
+                      ItemsSource="{Binding SelectedGroup.Events, Mode=TwoWay}"
                       SelectionMode="None"
                       HasUnevenRows="True"
                       BackgroundColor="LightBlue">
@@ -36,6 +44,7 @@
                         <ViewCell>
                             <Grid BackgroundColor="Turquoise"
                                   VerticalOptions="FillAndExpand">
+                                
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="50"/>
                                     <RowDefinition Height="*"/>
@@ -66,7 +75,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="20"/>
                                         <RowDefinition Height="35"/>
                                     </Grid.RowDefinitions>
 
@@ -140,23 +149,26 @@
                 </ListView.ItemTemplate>
             </ListView>
 
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Column="0" Command="{Binding PreviousGroup}" Text="Prev"/>
+                <Button Grid.Column="1" Command="{Binding NextCommand}" Text="Next"/>
+            </Grid>
 
-            <ListView Grid.Row="2"
-                      ItemsSource="{Binding Groups}" 
-                      SelectionMode="None"
-                      BackgroundColor="Green">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
 
-                            <Button Text="{Binding Name}"/>
 
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
+            <!--<Picker ItemsSource="{Binding Groups, Mode=TwoWay}"
+                    Grid.Row="3"
+                    BackgroundColor="Orange"
+                    VerticalOptions="Center"
+                    SelectedIndex="{Binding SelectedGroup, Mode=TwoWay}">
+                   
+            </Picker>-->
         </Grid>
     </ContentPage>
     

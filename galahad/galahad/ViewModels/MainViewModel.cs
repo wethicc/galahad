@@ -3,20 +3,47 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using galahad.Utils;
 
 namespace galahad.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        public List<Group> Groups { get; set; } = new List<Group>();
-        public Group SelectedGroup { get; set; }
+        private ObservableCollection<Group> m_Groups;
+        public ObservableCollection<Group> Groups {
+            get { return m_Groups; }
+            set {
+                if (m_Groups != value) {
+                    m_Groups = value;
+                    OnPropertyChanged(nameof(Groups));
+                }
+            }
+        }
+
+        private Group m_SelectedGroup;
+        public Group SelectedGroup {
+            get { return m_SelectedGroup; }
+            set {
+                if (m_SelectedGroup != value) {
+                    m_SelectedGroup = value;
+                    OnPropertyChanged(nameof(SelectedGroup));
+                }
+            }
+        }
+
+
         public string test { get; set; }
 
         public MainViewModel()
         {
+            Groups = new ObservableCollection<Group>();
+
+
             test = "213";
-            List<Event> Events  = new List<Event>();
-            List<Event> Events2 = new List<Event>();
+            ObservableCollection<Event> Events  = new ObservableCollection<Event>();
+            ObservableCollection<Event> Events2 = new ObservableCollection<Event>();
             Events.Add(
                 new Event
                 {
@@ -97,5 +124,20 @@ namespace galahad.ViewModels
 
             SelectedGroup = Groups.FirstOrDefault();
         }
+
+
+        #region Commands
+        
+        public ICommand NextCommand { get { return new RelayCommand(OnNextCommand, AlwaysTrue); } }
+        private bool AlwaysTrue() { return true; }
+        public void OnNextCommand()
+        {
+            SelectedGroup = Groups.Last();
+            OnPropertyChanged(nameof(SelectedGroup));
+        }
+
+
+        #endregion Commands
+
     }
 }
