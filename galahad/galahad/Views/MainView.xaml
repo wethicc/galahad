@@ -154,8 +154,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
-                <Button Grid.Column="0" Command="{Binding PreviousGroup}" Text="Prev"/>
+
+                <Button Grid.Column="0" Command="{Binding PreviousCommand}" Text="Prev"/>
                 <Button Grid.Column="1" Command="{Binding NextCommand}" Text="Next"/>
             </Grid>
 
