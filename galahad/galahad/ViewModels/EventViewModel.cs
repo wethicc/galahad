@@ -43,7 +43,6 @@ namespace galahad.ViewModels
             Groups = new ObservableCollection<Group>();
 
 
-            test = "213";
             ObservableCollection<Event> Events = new ObservableCollection<Event>();
             ObservableCollection<Event> Events2 = new ObservableCollection<Event>();
             Events.Add(

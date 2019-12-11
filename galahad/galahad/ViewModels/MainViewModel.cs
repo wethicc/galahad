@@ -11,7 +11,7 @@ namespace galahad.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        
+
 
     }
 }

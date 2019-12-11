@@ -2,6 +2,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:galahad.Views"
             android:TabbedPage.ToolbarPlacement="Bottom"
             x:Class="galahad.Views.MainView"
             BackgroundColor="#f5f6fa"
@@ -11,7 +12,9 @@
             android:TabbedPage.BarSelectedItemColor="#2f3640">
     
     <ContentPage Title="Events">
-        
+        <ContentPage.Content>
+            <local:EventView />
+        </ContentPage.Content>
     </ContentPage>
     
     <ContentPage Title="Groups">

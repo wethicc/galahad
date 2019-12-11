@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using galahad.API.Services;
 using galahad.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,12 +11,12 @@ namespace galahad.API.Controllers
     [ApiController]
     public class EventsController : ControllerBase
     {
-        private readonly EventService _eventService;
+        //private readonly EventService _eventService;
 
-        public EventsController(EventService eventService)
-        {
-            _eventService = eventService;
-        }
+        //public EventsController(EventService eventService)
+        //{
+        //    _eventService = eventService;
+        //}
 
         // GET api/values
         [HttpGet]
@@ -27,11 +26,11 @@ namespace galahad.API.Controllers
         }
 
         // GET api/events/5
-        [HttpGet("{id}")]
-        public ActionResult<Event> Get(string id)
-        {
-            return _eventService.Get(id);
-        }
+        //[HttpGet("{id}")]
+        //public ActionResult<Event> Get(string id)
+        //{
+        //    return _eventService.Get(id);
+        //}
 
         [HttpGet]
         public ActionResult<Event[]> GetForUser([FromBody]int userId)

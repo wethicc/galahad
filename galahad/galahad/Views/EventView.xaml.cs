@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace galahad.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EventView : ContentPage
+    public partial class EventView : ContentView
     {
         public EventView()
         {
