@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="galahad.Views.EventView">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" 
+                   Text="Events" 
+                   TextColor="Black" 
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center" 
+                   FontSize="Large"/>
+
+            <Label Grid.Row="1" 
+                   Text="{Binding SelectedGroup.Name}" 
+                   TextColor="Black" 
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center" 
+                   FontSize="Large"/>
+
+            <ListView Grid.Row="2" 
+                      ItemsSource="{Binding SelectedGroup.Events, Mode=TwoWay}"
+                      SelectionMode="None"
+                      HasUnevenRows="True"
+                      BackgroundColor="LightBlue">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <Grid BackgroundColor="Turquoise"
+                                  VerticalOptions="FillAndExpand">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" 
+                                               TextColor="#111111" 
+                                               HorizontalTextAlignment="Start"
+                                               VerticalTextAlignment="Center"
+                                               FontSize="20"
+                                               Margin="10, 0, 0, 0"/>
+
+                                    </StackLayout>
+                                </Grid>
+
+                                <Grid Grid.Row="1" 
+                                      Margin="0"
+                                      BackgroundColor="Yellow">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="35"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout Grid.Column="0" 
+                                                 Grid.Row="0">
+
+                                        <Label Text="{Binding Description}"
+                                               VerticalTextAlignment="Center"
+                                               TextColor="Black"
+                                               Margin="10, 0, 0, 0"/>
+
+                                    </StackLayout>
+
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0"
+                                                     Orientation="Horizontal" 
+                                                     HorizontalOptions="Start">
+
+                                            <Label FontSize="Medium" 
+                                                   FontAttributes="Bold"
+                                                   Text="{Binding Path=Date, StringFormat='{}{0:dddd}'}"
+                                                   Margin="10, 5, 0, 5"
+                                                   VerticalTextAlignment="Center"/>
+
+                                            <Label FontSize="Small" 
+                                                   Text="at"
+                                                   VerticalTextAlignment="Center"/>
+
+                                            <Label FontSize="Medium" 
+                                                   FontAttributes="Bold"
+                                                   Text="{Binding Path=Date, StringFormat='{}{0:hh:mm}'}"
+                                                   Margin="0, 5, 5, 5"
+                                                   VerticalTextAlignment="Center"/>
+
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Column="1"
+                                                     Orientation="Horizontal"
+                                                     HorizontalOptions="EndAndExpand">
+
+                                            <Label FontSize="Small" 
+                                                   FontAttributes="Bold"
+                                                   Text="Repeted"
+                                                   Opacity="0.1"
+                                                   Margin="5"
+                                                   VerticalTextAlignment="Center"/>
+
+                                            <Label FontSize="Small" 
+                                                   FontAttributes="Bold"
+                                                   Text="Reminder"
+                                                   Margin="5"
+                                                   VerticalTextAlignment="Center"/>
+
+                                            <Label FontSize="Small" 
+                                                   FontAttributes="Bold"
+                                                   Text="Muted"
+                                                   Margin="5"
+                                                   VerticalTextAlignment="Center"/>
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            
+                        </ViewCell>                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Command="{Binding PreviousCommand}" Text="Prev"/>
+                <Button Grid.Column="1" Command="{Binding NextCommand}" Text="Next"/>
+            </Grid>
+            <!--<Picker ItemsSource="{Binding Groups, Mode=TwoWay}"
+                    Grid.Row="3"
+                    BackgroundColor="Orange"
+                    VerticalOptions="Center"
+                    SelectedIndex="{Binding SelectedGroup, Mode=TwoWay}">
+                   
+            </Picker>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
