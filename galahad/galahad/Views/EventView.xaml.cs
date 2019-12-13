@@ -18,7 +18,6 @@ namespace galahad.Views
             InitializeComponent();
 
             ViewModel = new EventViewModel();
-
         }
 
         public EventViewModel ViewModel {

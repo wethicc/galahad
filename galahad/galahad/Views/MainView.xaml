@@ -5,11 +5,11 @@
             xmlns:local="clr-namespace:galahad.Views"
             android:TabbedPage.ToolbarPlacement="Bottom"
             x:Class="galahad.Views.MainView"
-            BackgroundColor="#f5f6fa"
-            BarBackgroundColor="#f1c40f"
+            BackgroundColor="#eff0f3"
+            BarBackgroundColor="#90b4ce"
             BarTextColor="#2f3640"
-            android:TabbedPage.BarItemColor="#D8B00D"
-            android:TabbedPage.BarSelectedItemColor="#2f3640">
+            android:TabbedPage.BarItemColor="#90b4ce"
+            android:TabbedPage.BarSelectedItemColor="#90b4ce">
     
     <ContentPage Title="Events">
         <ContentPage.Content>

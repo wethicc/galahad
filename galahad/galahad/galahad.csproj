@@ -15,12 +15,10 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\EventViews\" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AlarmViews\AlarmView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\DetailViews\DetailView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
