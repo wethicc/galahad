@@ -19,7 +19,13 @@
     
     <ContentPage Title="Groups">
         <StackLayout>
-            
+            <Label Text="This is the Groups page"/>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="New">
+        <StackLayout>
+            <Label Text="This is the New page"/>
         </StackLayout>
     </ContentPage>
 </TabbedPage>

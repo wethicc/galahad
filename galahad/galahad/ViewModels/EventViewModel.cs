@@ -127,37 +127,37 @@ namespace galahad.ViewModels
         }
 
 
-        #region Commands
+        //#region Commands
 
-        public ICommand NextCommand { get { return new RelayCommand(OnNextCommand, CanNext); } }
-        private bool CanNext()
-        {
-            return pageKeeper < (Groups.Count - 1);
-        }
-        public void OnNextCommand()
-        {
-            if (CanNext())
-            {
-                SelectedGroup = Groups[++pageKeeper];
-            }
-            //OnPropertyChanged(nameof(SelectedGroup));
-        }
+        //public ICommand NextCommand { get { return new RelayCommand(OnNextCommand, CanNext); } }
+        //private bool CanNext()
+        //{
+        //    return pageKeeper < (Groups.Count - 1);
+        //}
+        //public void OnNextCommand()
+        //{
+        //    if (CanNext())
+        //    {
+        //        SelectedGroup = Groups[++pageKeeper];
+        //    }
+        //    //OnPropertyChanged(nameof(SelectedGroup));
+        //}
 
-        public ICommand PreviousCommand { get { return new RelayCommand(OnPreviousCommand, CanPrevious); } }
-        private bool CanPrevious()
-        {
-            return pageKeeper > 0;
-        }
-        public void OnPreviousCommand()
-        {
-            if (CanPrevious())
-            {
-                SelectedGroup = Groups[--pageKeeper];
-            }
-            //OnPropertyChanged(nameof(SelectedGroup));
-        }
+        //public ICommand PreviousCommand { get { return new RelayCommand(OnPreviousCommand, CanPrevious); } }
+        //private bool CanPrevious()
+        //{
+        //    return pageKeeper > 0;
+        //}
+        //public void OnPreviousCommand()
+        //{
+        //    if (CanPrevious())
+        //    {
+        //        SelectedGroup = Groups[--pageKeeper];
+        //    }
+        //    //OnPropertyChanged(nameof(SelectedGroup));
+        //}
 
 
-        #endregion Commands
+        //#endregion Commands
     }
 }

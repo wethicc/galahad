@@ -3,159 +3,148 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              mc:Ignorable="d"
-             x:Class="galahad.Views.EventView">
+             x:Class="galahad.Views.EventView"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+
     <ContentView.Content>
-        
-        <Grid VerticalOptions="FillAndExpand">
-            
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" 
-                   Text="{Binding SelectedGroup.Name}" 
-                   TextColor="#094067" 
-                   VerticalTextAlignment="Center" 
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="CenterAndExpand"
-                   FontSize="26"
-                   Margin="10,20,10,10"/>
+        <controls:CarouselViewControl Orientation="Horizontal" InterPageSpacing="10" ItemsSource="{Binding Groups}">
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand">       
 
-            <ListView Grid.Row="1" 
-                      ItemsSource="{Binding SelectedGroup.Events, Mode=TwoWay}"
-                      SelectionMode="None"
-                      HasUnevenRows="True"
-                      Margin="10, 0, 10, 10"
-                      SeparatorVisibility="None">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
 
-                
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame CornerRadius="30" 
-                                   HasShadow="True"
-                                   Padding="10"
-                                   Margin="10"
-                                   BackgroundColor="#d8eefe">
-                                
-                                <Grid VerticalOptions="FillAndExpand">
+                        <Label Grid.Row="0" 
+                               Text="{Binding Name}" 
+                               TextColor="#094067" 
+                               VerticalTextAlignment="Center" 
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="26"
+                               Margin="10,20,10,10"/>   
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
+                        <ListView Grid.Row="1" 
+                                  ItemsSource="{Binding Events, Mode=TwoWay}"
+                                  SelectionMode="None"
+                                  HasUnevenRows="True"
+                                  Margin="10, 10, 10, 10"
+                                  SeparatorVisibility="None">
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    
-                                    <Label Grid.Row="0"
-                                           Grid.Column="0"
-                                           Text="{Binding Name}" 
-                                           FontAttributes="Bold"
-                                           TextColor="#5f6c7b"
-                                           HorizontalTextAlignment="Start"
-                                           VerticalTextAlignment="End"
-                                           FontSize="Medium"
-                                           Margin="10, 0, 0, 0"/>
-
-                                    <StackLayout Grid.Row="1"
-                                                 Grid.Column="0"
-                                                 Grid.ColumnSpan="2"
-                                                 Orientation="Horizontal"                                                 
-                                                 HorizontalOptions="CenterAndExpand"
-                                                 Margin="10">
-
-                                        <Label FontSize="Large" 
-                                               FontAttributes="Bold"
-                                               Text="{Binding Path=Date, StringFormat='{}{0:dddd}'}"
-                                               TextColor="#5f6c7b"
-                                               Margin="10, 5, 0, 5"
-                                               VerticalTextAlignment="Center"/>
-
-                                        <Label FontSize="Medium" 
-                                               Text="at"
-                                               TextColor="#5f6c7b"
-                                               VerticalTextAlignment="Center"/>
-
-                                        <Label FontSize="Large"
-                                               TextColor="#5f6c7b"
-                                               FontAttributes="Bold"
-                                               Text="{Binding Path=Date, StringFormat='{}{0:hh:mm}'}"
-                                               Margin="0, 5, 5, 5"
-                                               VerticalTextAlignment="Center"/>
-
-                                    </StackLayout>
-
-                                    <StackLayout Grid.Row="2"
-                                                 Grid.Column="0"
-                                                 Grid.ColumnSpan="2"
-                                                 Orientation="Horizontal"
-                                                 HorizontalOptions="EndAndExpand">
-
-                                        <Label FontSize="Small" 
-                                               FontAttributes="Bold"
-                                               Text="Repeted"
-                                               Opacity="0.1"
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame CornerRadius="10" 
+                                               HasShadow="True"
+                                               Padding="10"
                                                Margin="5"
-                                               VerticalTextAlignment="Center"/>
+                                               BackgroundColor="#f5f6fa">
 
-                                        <Label FontSize="Small" 
-                                               FontAttributes="Bold"
-                                               Text="Reminder"
-                                               Margin="5"
-                                               VerticalTextAlignment="Center"/>
+                                            <Grid VerticalOptions="FillAndExpand">
 
-                                        <Label FontSize="Small" 
-                                               FontAttributes="Bold"
-                                               Text="Muted"
-                                               Margin="5"
-                                               VerticalTextAlignment="Center"/>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
 
-                                    </StackLayout>
-                                </Grid>
-                            </Frame>
-                        </ViewCell>                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                <Button BackgroundColor="Transparent"
-                        TextColor="#094067"
-                        Grid.Column="0"
-                        Margin="10"
-                        Command="{Binding PreviousCommand}" 
-                        Text="&lt;"/>
+                                                <Label Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Text="{Binding Name}" 
+                                                       FontAttributes="Bold"
+                                                       TextColor="#5f6c7b"
+                                                       HorizontalTextAlignment="Start"
+                                                       VerticalTextAlignment="End"
+                                                       FontSize="Medium"
+                                                       Margin="10, 0, 0, 0"/>
 
-                <Button BackgroundColor="Transparent"
-                        TextColor="#094067"
-                        Grid.Column="1"
-                        Margin="10"
-                        Command="{Binding NextCommand}" 
-                        Text="&gt;"/>
-                
-                
-            </Grid>
+                                                <StackLayout Grid.Row="1"
+                                                             Grid.Column="0"
+                                                             Grid.ColumnSpan="2"
+                                                             Orientation="Horizontal"                                                 
+                                                             HorizontalOptions="CenterAndExpand"
+                                                             Margin="10">
 
-           
-            <!--<Picker ItemsSource="{Binding Groups, Mode=TwoWay}"
-                    Grid.Row="3"
-                    BackgroundColor="Orange"
-                    VerticalOptions="Center"
-                    SelectedIndex="{Binding SelectedGroup, Mode=TwoWay}">
-                   
-            </Picker>-->
-        </Grid>
+                                                    <Label FontSize="Large" 
+                                                           FontAttributes="Bold"
+                                                           Text="{Binding Path=Date, StringFormat='{}{0:dddd}'}"
+                                                           TextColor="#5f6c7b"
+                                                           Margin="10, 5, 0, 5"
+                                                           VerticalTextAlignment="Center"/>
+
+                                                    <Label FontSize="Medium" 
+                                                           Text="at"
+                                                           TextColor="#5f6c7b"
+                                                           VerticalTextAlignment="Center"/>
+
+                                                    <Label FontSize="Large"
+                                                           TextColor="#5f6c7b"
+                                                           FontAttributes="Bold"
+                                                           Text="{Binding Path=Date, StringFormat='{}{0:hh:mm}'}"
+                                                           Margin="0, 5, 5, 5"
+                                                           VerticalTextAlignment="Center"/>
+
+                                                </StackLayout>
+
+                                                <StackLayout Grid.Row="2"
+                                                             Grid.Column="0"
+                                                             Grid.ColumnSpan="2"
+                                                             Orientation="Horizontal"
+                                                             HorizontalOptions="EndAndExpand">
+
+                                                    <Label FontSize="Small" 
+                                                           FontAttributes="Bold"
+                                                           Text="Repeted"
+                                                           Opacity="0.1"
+                                                           Margin="5"
+                                                           VerticalTextAlignment="Center"/>
+
+                                                    <Label FontSize="Small" 
+                                                           FontAttributes="Bold"
+                                                           Text="Reminder"
+                                                           Margin="5"
+                                                           VerticalTextAlignment="Center"/>
+
+                                                    <Label FontSize="Small" 
+                                                           FontAttributes="Bold"
+                                                           Text="Muted"
+                                                           Margin="5"
+                                                           VerticalTextAlignment="Center"/>
+
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+        </controls:CarouselViewControl>
+
+
+
+        <!--<Picker ItemsSource="{Binding Groups, Mode=TwoWay}"
+                Grid.Row="3"
+                BackgroundColor="Orange"
+                VerticalOptions="Center"
+                SelectedIndex="{Binding SelectedGroup, Mode=TwoWay}">
+               
+        </Picker>-->
     </ContentView.Content>
 </ContentView>
+
+<!---->
