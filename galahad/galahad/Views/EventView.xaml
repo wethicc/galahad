@@ -10,6 +10,7 @@
               HorizontalOptions="FillAndExpand">
 
     <ContentView.Content>
+        
         <controls:CarouselViewControl Orientation="Horizontal" InterPageSpacing="10" ItemsSource="{Binding Groups}">
             <controls:CarouselViewControl.ItemTemplate>
                 <DataTemplate>
