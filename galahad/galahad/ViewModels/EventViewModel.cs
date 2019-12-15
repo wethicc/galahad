@@ -9,26 +9,14 @@ namespace galahad.ViewModels
     {
         private ObservableCollection<Group> m_Groups;
         public ObservableCollection<Group> Groups {
-            get { return m_Groups; }
-            set {
-                if (m_Groups != value)
-                {
-                    m_Groups = value;
-                    OnPropertyChanged(nameof(Groups));
-                }
-            }
+            get => m_Groups;
+            set => SetValue(ref m_Groups, value);
         }
 
         private Group m_SelectedGroup;
         public Group SelectedGroup {
-            get { return m_SelectedGroup; }
-            set {
-                if (m_SelectedGroup != value)
-                {
-                    m_SelectedGroup = value;
-                    OnPropertyChanged(nameof(SelectedGroup));
-                }
-            }
+            get => m_SelectedGroup;
+            set => SetValue(ref m_SelectedGroup, value);
         }
 
         public EventViewModel()
