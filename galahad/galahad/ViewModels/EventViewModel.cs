@@ -1,11 +1,7 @@
 ﻿using galahad.Models;
-using galahad.Utils;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Windows.Input;
 
 namespace galahad.ViewModels
 {
@@ -35,17 +31,10 @@ namespace galahad.ViewModels
             }
         }
 
-        int pageKeeper = 0;
-
-
         public EventViewModel()
         {
-            Groups = new ObservableCollection<Group>();
-
-
-            ObservableCollection<Event> Events = new ObservableCollection<Event>();
-            ObservableCollection<Event> Events2 = new ObservableCollection<Event>();
-            Events.Add(
+            var events = new ObservableCollection<Event>()
+            {
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
@@ -58,8 +47,10 @@ namespace galahad.ViewModels
                     Warning = false,
                     WarningTime = null
                 }
-            );
-            Events2.Add(
+            };
+
+            var events2 = new ObservableCollection<Event>()
+            {
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
@@ -71,9 +62,7 @@ namespace galahad.ViewModels
                     Repeated = false,
                     Warning = false,
                     WarningTime = null
-                }
-            );
-            Events2.Add(
+                },
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
@@ -85,9 +74,7 @@ namespace galahad.ViewModels
                     Repeated = false,
                     Warning = false,
                     WarningTime = null
-                }
-            );
-            Events2.Add(
+                },
                 new Event
                 {
                     Id = Guid.NewGuid().ToString("N").ToUpper(),
@@ -100,64 +87,25 @@ namespace galahad.ViewModels
                     Warning = false,
                     WarningTime = null
                 }
-            );
+            };
 
-            Groups.Add(
+            Groups = new ObservableCollection<Group>()
+            {
                 new Group
                 {
                     Id = new Guid().ToString("N").ToUpper(),
-                    Events = Events,
+                    Events = events,
                     Name = "Gym Group"
-                }
-            );
-
-
-            Groups.Add(
+                },
                 new Group
                 {
                     Id = new Guid().ToString("N").ToUpper(),
-                    Events = Events2,
+                    Events = events2,
                     Name = "Work Group"
                 }
-            );
-
-
+            };
 
             SelectedGroup = Groups.FirstOrDefault();
         }
-
-
-        //#region Commands
-
-        //public ICommand NextCommand { get { return new RelayCommand(OnNextCommand, CanNext); } }
-        //private bool CanNext()
-        //{
-        //    return pageKeeper < (Groups.Count - 1);
-        //}
-        //public void OnNextCommand()
-        //{
-        //    if (CanNext())
-        //    {
-        //        SelectedGroup = Groups[++pageKeeper];
-        //    }
-        //    //OnPropertyChanged(nameof(SelectedGroup));
-        //}
-
-        //public ICommand PreviousCommand { get { return new RelayCommand(OnPreviousCommand, CanPrevious); } }
-        //private bool CanPrevious()
-        //{
-        //    return pageKeeper > 0;
-        //}
-        //public void OnPreviousCommand()
-        //{
-        //    if (CanPrevious())
-        //    {
-        //        SelectedGroup = Groups[--pageKeeper];
-        //    }
-        //    //OnPropertyChanged(nameof(SelectedGroup));
-        //}
-
-
-        //#endregion Commands
     }
 }
