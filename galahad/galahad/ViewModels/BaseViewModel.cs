@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using galahad.Models;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -6,6 +8,18 @@ namespace galahad.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        private ObservableCollection<Group> m_Groups;
+        public ObservableCollection<Group> Groups {
+            get { return m_Groups; }
+            set {
+                if (m_Groups != value)
+                {
+                    m_Groups = value;
+                    OnPropertyChanged(nameof(Groups));
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)

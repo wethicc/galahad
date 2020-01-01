@@ -14,17 +14,17 @@
         </ContentPage.Content>
     </ContentPage>
     
-    <ContentPage Title="Groups"
+    <ContentPage Title="Contacts"
                  Icon="group.png">
         <StackLayout>
-            <Label Text="This is the Groups page"/>            
+            <Label Text="This is the Contacts page"/>
         </StackLayout>
     </ContentPage>
 
     <ContentPage Title="Add"
                  Icon="add3.png">
         <StackLayout>
-            <Label Text="This is the New page"/>
+            <Label Text="This is the Add page"/>
         </StackLayout>
     </ContentPage>
 </TabbedPage>
